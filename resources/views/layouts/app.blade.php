@@ -61,24 +61,10 @@
                                                      onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                                      Logout</a>
+                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                         {{ csrf_field() }}
+                                                     </form>
                           </div>
-
-                          <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    @role('Admin') {{-- Laravel-permission blade helper --}}
-                                    <a href="#"><i class="fa fa-btn fa-unlock"></i>Admin</a>
-                                    @endrole
-                                    <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
                         </li>
                         @endif
                       </ul>
